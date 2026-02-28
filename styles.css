@@ -31,8 +31,6 @@ body {
 }
 
 .folder {
-  /* To return to absolute folder positions, uncomment the line below and parse the --left and --top values in the folder class */
-  /* position: absolute; */
   left: calc(var(--left) - var(--width) / 2);
   top: calc(var(--top) - var(--height) / 2);
   width: calc(var(--width) * 1.25);
@@ -85,7 +83,7 @@ main {
 
 a {
   color: white;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 ul {
@@ -111,6 +109,81 @@ footer {
   position: absolute;
   touch-action: none;
   user-select: none;
+}
+
+.window95 {
+  position: fixed;
+  top: 4rem;
+  right: 2rem;
+  width: 320px;
+  background: #c0c0c0;
+  border: 2px solid;
+  border-color: #ffffff #3f3f3f #3f3f3f #ffffff;
+  color: #000000;
+  z-index: 2000;
+}
+
+.window95.hidden {
+  display: none;
+}
+
+.window95-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem 0.4rem;
+  background: #000080;
+  color: #ffffff;
+  font-size: 0.85rem;
+}
+
+.window95-title button {
+  width: 22px;
+  height: 22px;
+  border: 2px solid;
+  border-color: #ffffff #3f3f3f #3f3f3f #ffffff;
+  background: #c0c0c0;
+  color: #000000;
+  font-family: inherit;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.window95-title button:active {
+  border-color: #3f3f3f #ffffff #ffffff #3f3f3f;
+}
+
+.window95-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.6rem;
+}
+
+#identicon-input {
+  width: 100%;
+  padding: 0.3rem;
+  border: 2px solid;
+  border-color: #3f3f3f #ffffff #ffffff #3f3f3f;
+  background: #ffffff;
+  color: #000000;
+  font-family: "JetBrains Mono", monospace;
+}
+
+#identicon-canvas {
+  width: 160px;
+  height: 160px;
+  border: 2px solid;
+  border-color: #3f3f3f #ffffff #ffffff #3f3f3f;
+  background: #ffffff;
+  image-rendering: pixelated;
+}
+
+#identicon-status {
+  margin: 0;
+  min-height: 1.25rem;
+  font-size: 0.75rem;
 }
 
 .folder span {

@@ -24,6 +24,15 @@ const ICONS = [
     position: { top: '56%', left: '3%' }
   },
   {
+    id: 'identicon',
+    label: 'identicon.exe',
+    href: '#identicon-window',
+    icon: './img/kodak_imaging-0.png',
+    external: false,
+    appAction: 'open-identicon',
+    position: { top: '73%', left: '3%' }
+  },
+  {
     id: 'doom',
     label: 'DOOM95_FULL-CRACKED-FLT.zip',
     href: 'https://www.youtube.com/watch?v=ThpwO5NcvhU',
@@ -96,6 +105,10 @@ function buildDesktop() {
       link.rel = 'noopener noreferrer';
     }
 
+    if (iconData.appAction) {
+      link.dataset.appAction = iconData.appAction;
+    }
+
     const image = document.createElement('img');
     image.src = iconData.icon;
     image.alt = `${iconData.label} icon`;
@@ -124,6 +137,90 @@ function clampToViewport(x, y, element) {
   const clampedX = Math.max(0, Math.min(window.innerWidth - element.offsetWidth, x));
   const clampedY = Math.max(0, Math.min(window.innerHeight - element.offsetHeight, y));
   return { x: clampedX, y: clampedY };
+}
+
+function renderIdenticonToCanvas(canvas, raw, size) {
+  const ctx = canvas.getContext('2d');
+  if (!ctx) {
+    return false;
+  }
+
+  if (raw.length === size * size * 4) {
+    canvas.width = size;
+    canvas.height = size;
+    const imageData = new ImageData(new Uint8ClampedArray(raw), size, size);
+    ctx.putImageData(imageData, 0, 0);
+    return true;
+  }
+
+  if (raw.length === size * size) {
+    canvas.width = size;
+    canvas.height = size;
+    const rgba = new Uint8ClampedArray(size * size * 4);
+    for (let i = 0; i < raw.length; i += 1) {
+      const base = i * 4;
+      const value = raw[i];
+      rgba[base] = value;
+      rgba[base + 1] = value;
+      rgba[base + 2] = value;
+      rgba[base + 3] = 255;
+    }
+    ctx.putImageData(new ImageData(rgba, size, size), 0, 0);
+    return true;
+  }
+
+  return false;
+}
+
+async function setupIdenticonWidget() {
+  const launch = document.querySelector('[data-app-action="open-identicon"]');
+  const windowEl = document.getElementById('identicon-window');
+  const close = document.getElementById('identicon-close');
+  const input = document.getElementById('identicon-input');
+  const canvas = document.getElementById('identicon-canvas');
+  const status = document.getElementById('identicon-status');
+
+  if (!launch || !windowEl || !close || !input || !canvas || !status) {
+    return;
+  }
+
+  function openWindow() {
+    windowEl.classList.remove('hidden');
+    input.focus();
+  }
+
+  function closeWindow() {
+    windowEl.classList.add('hidden');
+  }
+
+  launch.addEventListener('click', (event) => {
+    event.preventDefault();
+    openWindow();
+  });
+  close.addEventListener('click', closeWindow);
+
+  try {
+    const identiconModule = await import('./vendor/identicon/identicon.js');
+    await identiconModule.default();
+
+    const size = identiconModule.identicon_size();
+    const render = identiconModule.render_identicon;
+
+    function update() {
+      const raw = render(input.value);
+      const ok = renderIdenticonToCanvas(canvas, raw, size);
+      status.textContent = ok
+        ? `Rendered ${size}x${size} identicon`
+        : `Unexpected buffer length: ${raw.length}`;
+    }
+
+    input.addEventListener('input', update);
+    status.textContent = 'Ready. Type to update.';
+    update();
+  } catch (error) {
+    console.error(error);
+    status.textContent = 'Failed to load identicon WASM.';
+  }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -201,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
   });
 
-  function endDrag(event) {
+  function endDrag() {
     if (!dragTarget) {
       return;
     }
@@ -213,9 +310,6 @@ document.addEventListener('DOMContentLoaded', () => {
     savePositions(folderDivs);
     dragTarget.style.zIndex = '';
     dragTarget.style.cursor = 'grab';
-    if (event?.pointerId !== undefined && dragTarget.hasPointerCapture?.(event.pointerId)) {
-      dragTarget.releasePointerCapture(event.pointerId);
-    }
     dragTarget = null;
   }
 
@@ -240,4 +334,6 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.reload();
     });
   }
+
+  setupIdenticonWidget();
 });

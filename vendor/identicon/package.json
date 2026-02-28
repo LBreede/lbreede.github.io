@@ -1,0 +1,15 @@
+{
+  "name": "identicon",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "identicon_bg.wasm",
+    "identicon.js",
+    "identicon.d.ts"
+  ],
+  "main": "identicon.js",
+  "types": "identicon.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
