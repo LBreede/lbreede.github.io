@@ -61,6 +61,28 @@ main {
   margin: 2rem;
 }
 
+#desktop {
+  margin: 0;
+}
+
+.win95-btn {
+  position: fixed;
+  right: 1rem;
+  bottom: 2.5rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border: 2px solid;
+  border-color: #ffffff #3f3f3f #3f3f3f #ffffff;
+  background: #c0c0c0;
+  color: #000000;
+  cursor: pointer;
+}
+
+.win95-btn:active {
+  border-color: #3f3f3f #ffffff #ffffff #3f3f3f;
+}
+
 a {
   color: white;
   text-decoration: none; 
@@ -87,33 +109,8 @@ footer {
 
 .folder-pos {
   position: absolute;
-}
-
-.readme-pos {
-  top: 5%;
-  left: 3%;
-}
-
-.blog-pos {
-  top: 22%;
-  left: 3%;
-}
-
-.project-pos {
-  top: 39%;
-  left: 3%;
-}
-
-.trash-pos {
-  top: 56%;
-  left: 3%;
-}
-
-.doom-pos {
-  bottom: 5%;
-  right: 3%;
-  top: auto;
-  left: auto;
+  touch-action: none;
+  user-select: none;
 }
 
 .folder span {
