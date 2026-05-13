@@ -108,7 +108,7 @@ TITLES: Entries = [
 
 INTERVIEWS: Entries = [
     Entry(
-        "$143 Lennart Breede | Läuft Doom in Houdini?",
+        "#143 Lennart Breede | Läuft Doom in Houdini?",
         2025,
         "Life After SAE",
         notes="Podcast Episode",
