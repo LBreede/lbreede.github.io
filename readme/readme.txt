@@ -2,7 +2,7 @@
 
                                  LENNART BREEDE
                                  March 12, 1996
-                           Updated January 9th, 2026
+                             Updated May 12th, 2026
 
 -------------------------------------------------------------------------------
 
@@ -140,6 +140,20 @@ Fallout: The Wanderer
 
 ===============================================================================
 
+$143 Lennart Breede | Läuft Doom in Houdini?
+        2025        Life After SAE        Podcast Episode
+
+        In dieser Episode begrüßen wir erneut Lennart Breede, der über seine
+        aktuellen Projekte und die spannende Übergangsphase von Animal Logic zu
+        Netflix spricht. Erfahrt, wie sich diese Veränderungen auf seine Arbeit
+        ausgewirkt haben und welche neuen Herausforderungen und Möglichkeiten
+        sich daraus ergeben. Lennart teilt seine Erfahrungen und Einblicke in
+        die Welt der visuellen Effekte und die Balance zwischen Kunst und
+        Technik. Freut euch auf ein inspirierendes Gespräch über die Zukunft
+        der Animation und die Rolle von Technologie in kreativen Prozessen.
+
+-------------------------------------------------------------------------------
+
 #49 Lennart Breede | Grünzeug und falsche Funken
         2022        Life After SAE        Podcast Episode
 
@@ -161,3 +175,4 @@ Peter Pan's Finest!
         2021        Digital Production
 
 ===============================================================================
+

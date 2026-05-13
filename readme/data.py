@@ -108,6 +108,13 @@ TITLES: Entries = [
 
 INTERVIEWS: Entries = [
     Entry(
+        "$143 Lennart Breede | Läuft Doom in Houdini?",
+        2025,
+        "Life After SAE",
+        notes="Podcast Episode",
+        description="In dieser Episode begrüßen wir erneut Lennart Breede, der über seine aktuellen Projekte und die spannende Übergangsphase von Animal Logic zu Netflix spricht. Erfahrt, wie sich diese Veränderungen auf seine Arbeit ausgewirkt haben und welche neuen Herausforderungen und Möglichkeiten sich daraus ergeben. Lennart teilt seine Erfahrungen und Einblicke in die Welt der visuellen Effekte und die Balance zwischen Kunst und Technik. Freut euch auf ein inspirierendes Gespräch über die Zukunft der Animation und die Rolle von Technologie in kreativen Prozessen.",
+    ),
+    Entry(
         "#49 Lennart Breede | Grünzeug und falsche Funken",
         2022,
         "Life After SAE",

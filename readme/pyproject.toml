@@ -1,2 +1,10 @@
+[project]
+name = "readme"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = []
+
 [tool.ruff]
 line-length = 79
