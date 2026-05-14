@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="./img/trash.png">
+  <script src="script.js" defer></script>
+  <title>Lennart Breede</title>
+</head>
+
+<body>
+  <nav class="centered">Lennart Breede</nav>
+
+  <main id="desktop" aria-label="Desktop icons"></main>
+  <button id="reset-layout" type="button" class="win95-btn">Reset Icon Layout</button>
+
+  <section id="identicon-window" class="window95 hidden" aria-label="Identicon app">
+    <header class="window95-title">
+      <span>identicon.exe</span>
+      <button id="identicon-close" type="button" aria-label="Close identicon window">x</button>
+    </header>
+    <div class="window95-body">
+      <label for="identicon-input">Type to generate:</label>
+      <input id="identicon-input" type="text" autocomplete="off" spellcheck="false">
+      <canvas id="identicon-canvas" width="5" height="5"></canvas>
+      <p id="identicon-status">Loading identicon engine...</p>
+    </div>
+  </section>
+
+  <footer class="centered">Made with ❤️ on planet earth.</footer>
+</body>
+
+</html>
