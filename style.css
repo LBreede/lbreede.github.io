@@ -1,0 +1,123 @@
+:root {
+  color-scheme: light dark;
+  --light: #fff;
+  --dark: #000;
+  --bg: var(--light);
+  --fg: var(--dark);
+  --muted: rgba(0, 0, 0, 0.72);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--dark);
+    --fg: var(--light);
+    --muted: rgba(255, 255, 255, 0.78);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body > div {
+  width: min(960px, calc(100% - 3rem));
+  margin: 0 auto;
+  padding: 4rem 0;
+  display: grid;
+  gap: 3rem;
+}
+
+aside,
+main {
+  display: grid;
+  gap: 1.5rem;
+}
+
+header {
+  display: grid;
+  gap: 0.2rem;
+}
+
+h1 {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+}
+
+p,
+dd,
+a,
+dt {
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+}
+
+nav {
+  display: grid;
+  align-items: flex-start;
+  gap: 0.2rem;
+}
+
+nav a {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+main {
+  gap: 1.75rem;
+}
+
+dl {
+  display: grid;
+  gap: 0.2rem;
+}
+
+dt {
+  font-weight: 500;
+}
+
+dd {
+  color: var(--muted);
+}
+
+@media (min-width: 768px) {
+  body > div {
+    grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+    align-items: start;
+    gap: 4rem;
+  }
+
+  aside {
+    position: sticky;
+    top: 4rem;
+    gap: 0.75rem;
+  }
+}
